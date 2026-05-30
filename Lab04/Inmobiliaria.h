@@ -2,7 +2,8 @@
 #define INMOBILIARIA_H
 
 #include "Usuario.h"
-
+#include "DataTypes/DtDireccion.h"
+#include "DataTypes/DtFecha.h"
 using namespace std;
 
 
@@ -20,6 +21,7 @@ public:
     DtDireccion getDireccionInmobiliaria();
     string getTelefono();
     string getURL();
+    string getNickname();
 };
 
 
