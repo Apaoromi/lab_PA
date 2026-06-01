@@ -15,6 +15,9 @@ public:
 
     DtFecha getFechaInicio() const;
 
+    DtInmueble getDatos() const;
+
+    
 };
 
 #endif

@@ -2,13 +2,7 @@
 
 Apartamento::Apartamento() : Inmueble(), numeroPiso(0), tieneAscensor(false), gastosComunes(0.0f) {}
 
-Apartamento::Apartamento(const DtDireccion& direccion,
-                         float superficie,
-                         const DtFecha& anioConstruccion,
-                         int numeroID,
-                         int numeroPiso,
-                         bool tieneAscensor,
-                         float gastosComunes)
+Apartamento::Apartamento(const DtDireccion& direccion, float superficie, const DtFecha& anioConstruccion, int numeroID, int numeroPiso, bool tieneAscensor, float gastosComunes)
     : Inmueble(direccion, superficie, anioConstruccion, numeroID),
       numeroPiso(numeroPiso),
       tieneAscensor(tieneAscensor),

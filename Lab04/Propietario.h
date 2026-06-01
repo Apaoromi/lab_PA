@@ -8,7 +8,7 @@ using namespace std;
 class Propietario : public Usuario {
 
 private:
-    string telefono;
+    int telefono;
     int cuentaBancaria;
 
 public:
@@ -17,6 +17,12 @@ public:
 
     string getTelefono();
     int getCuentaBancaria();
+    string getNickname();
+    string getNombre();
+    string getEmail();
+    DtDireccion getDireccion();
+    DtFecha getFechaNacimiento();
+    
 };
 
 #endif

@@ -44,29 +44,28 @@ std::set<DataPropietario> Sistema::listarPropietarios() {
 }
 
 // altaCliente
-void Sistema::altaCliente(const std::string& contrasenia, const std::string& email, const std::string& nombre, const std::string& apellido, const std::string& documento) {
+void Sistema::altaCliente(const std::string& nickname, const std::string& contrasenia, const std::string& email, const std::string& nombre, const std::string& apellido, const std::string& documento) {
+    // Ahora sí tenemos el nickname para dárselo al Cliente
     std::shared_ptr<Cliente> nuevo = std::make_shared<Cliente>(
-        contrasenia, email, nombre, apellido, documento
+        nickname, contrasenia, email, nombre, apellido, documento
     );
     clientes.insert(nuevo);
 }
 
 // altaPropietario
-void Sistema::altaPropietario(const std::string& contrasenia, const std::string& email, const std::string& nombre, int cuentaBancaria, const std::string& telefono) { 
+void Sistema::altaPropietario(const std::string& nickname, const std::string& contrasenia, const std::string& email, const std::string& nombre, int cuentaBancaria, const std::string& telefono) { 
     std::shared_ptr<Propietario> nuevo = std::make_shared<Propietario>(
-        contrasenia, email, nombre, cuentaBancaria, telefono
+        nickname, contrasenia, email, nombre, cuentaBancaria, telefono
     );
     propietarios.insert(nuevo);
-
 }
 
 // altaInmobiliaria
-void Sistema::altaInmobiliaria(const std::string& contrasenia, const std::string& email, const std::string& nombre, const std::string& direccion, const std::string& telefono, const std::string& url) {
+void Sistema::altaInmobiliaria(const std::string& nickname, const std::string& contrasenia, const std::string& email, const std::string& nombre, const std::string& direccion, const std::string& telefono, const std::string& url) {
     std::shared_ptr<Inmobiliaria> nuevo = std::make_shared<Inmobiliaria>(
-        contrasenia, email, nombre, direccion, telefono, url
+        nickname, contrasenia, email, nombre, direccion, telefono, url
     );
     inmobiliarias.insert(nuevo);
-
 }
 
 // existeUsuario
@@ -94,20 +93,24 @@ bool Sistema::existeUsuario(const std::string& nickname) {
 int Sistema::autoincremental() {    
     return ++autoincrementalID;
 }
-
+ 
 // crearCasa
-void Sistema::crearCasa(const std::string& direccion, const std::string& anioConstruccion,float superficie, bool propiedadHorizontal, const std::string& tipoTecho) {
+void Sistema::crearCasa(const DtDireccion& direccion, const DtFecha& anioConstruccion, float superficie, bool propiedadHorizontal, TipoTecho tipoTecho) {
+    
     std::shared_ptr<Casa> nueva = std::make_shared<Casa>(
-        direccion, anioConstruccion, superficie, autoincremental(), propiedadHorizontal, tipoTecho
+        direccion, superficie, anioConstruccion, autoincremental(), propiedadHorizontal, tipoTecho
     );
+    
     inmuebles.insert(nueva);
 }
 
 // crearApartamento
-void Sistema::crearApartamento(const std::string& direccion, const std::string& anioConstruccion, float superficie, int piso, bool tieneAscensor, float gastosComunes) {
+void Sistema::crearApartamento(const DtDireccion& direccion, const DtFecha& anioConstruccion, float superficie, int piso, bool tieneAscensor, float gastosComunes) {
+    
     std::shared_ptr<Apartamento> nuevo = std::make_shared<Apartamento>(
-        direccion, anioConstruccion, superficie, autoincremental(), piso, tieneAscensor, gastosComunes
+        direccion, superficie, anioConstruccion, autoincremental(), piso, tieneAscensor, gastosComunes
     );
+    
     inmuebles.insert(nuevo);
 }
 
@@ -174,27 +177,25 @@ std::set<DataPropietario> Sistema::listarInmueblesxPropietario() {
 
 // altaPublicacion
 void Sistema::altaPublicacion(const std::string& nickname, const std::string& texto, int precio, bool tipoPublicacion) {
-    // Aquí deberías implementar la lógica para crear una publicación
-    // y asociarla al propietario o inmobiliaria correspondiente
+
 }
 
 // filtrarPublicaciones
 std::set<DataFiltro> Sistema::filtrarPublicaciones(bool tipoPublicacion, float precioMinimo, float precioMaximo, int tipoInmueble) {
     std::set<DataFiltro> resultado;
-    // Aquí deberías implementar la lógica para filtrar las publicaciones
-    // según los criterios proporcionados
+
     return resultado;
 }
 
 // seleccionarPublicacion
 std::shared_ptr<Publicacion> Sistema::seleccionarPublicacion(int id) {
-    // Aquí deberías implementar la lógica para seleccionar una publicación por su ID
-    return nullptr; // Placeholder
+
+    return nullptr; 
 }
 
 // vincularPropietario
 void Sistema::vincularPropietario(const std::string& nickname) {
-    // Aquí deberías implementar la lógica para vincular un propietario a un inmueble
+
 }
 
 
