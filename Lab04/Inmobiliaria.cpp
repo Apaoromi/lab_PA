@@ -38,7 +38,7 @@ std::string Inmobiliaria::getURL() const {
 
 // getDatos (CORREGIDO para la clase inmutable)
 DtInmobiliaria Inmobiliaria::getDatos() {
-    // Instanciamos el DataType pasándole los parámetros directamente a su constructor
+
     return DtInmobiliaria(this->getNickname(), this->getNombre());
 }
 
